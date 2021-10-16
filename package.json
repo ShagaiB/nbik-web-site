@@ -3,9 +3,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "npm run build && next export -o _static"
   },
   "dependencies": {
+    "@apollo/client": "^3.4.15",
+    "graphql": "^15.6.0",
     "i18next": "^21.0.1",
     "next": "^11.1.2",
     "next-i18next": "^8.8.0",

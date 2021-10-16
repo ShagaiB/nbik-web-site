@@ -1,25 +1,26 @@
 import Head from 'next/head'
 import React, { useState } from 'react'
-import ProjectCard from '../components/ProjectCard';
-import Footer from '../components/wFooter'
-import { ubprojects as projectsData } from "../data";
-import { otprojects as projectsotData } from "../data";
-import Image from "next/image";
+import Footer from '../../components/wFooter'
+import { ubprojects as projectsData } from "../../data";
+import { otprojects as projectsotData } from "../../data";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from "next-i18next";
+import { GET_ALL_OT_PROJECTS } from '../../components/queries';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+import ProjectCard from '../../components/ProjectCard';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
-export async function getStaticProps({ locale }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ['home'])),
-        },
-    };
-}
 
-const Project = (props) => {
+
+
+const Project = () => {
     const { t } = useTranslation();
     const [projects] = useState(projectsData);
     const [otprojects] = useState(projectsotData);
+    // console.log(projectlist.projectlist)
+    const router = useRouter()
+    const { locale: activeLocale } = router
     return (
         <>
             <Head>
@@ -47,7 +48,7 @@ const Project = (props) => {
                     {
                         projects.map((project) => (
                             <div className='m-4' key={project.id}>
-                                <ProjectCard project={project} key={project.id} />
+                                {/* <ProjectCard project={project} key={project.id} /> */}
                             </div>
                         ))
                     }
@@ -59,13 +60,15 @@ const Project = (props) => {
                     </div>
                 </div>
                 <div className='grid pt-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
-                    {
-                        otprojects.map((projectot) => (
-                            <div className='m-4' key={projectot.id}>
-                                <ProjectCard project={projectot} key={projectot.id} />
-                            </div>
+                    {/* {
+                        projectlist.projectlist.map((projectot) => (
+                         
+                                    <div className='m-4' key={projectot.id}>
+                                        <ProjectCard project={projectot} locale={activeLocale} key={projectot.id} />
+                                    </div>
+                            
                         ))
-                    }
+                    } */}
                 </div>
             </div>
             <div>
@@ -74,5 +77,26 @@ const Project = (props) => {
         </>
     )
 }
+
+export const getStaticProps = async ({ locale }) => {
+    // const client = new ApolloClient({
+    //     uri: process.env.STRAPI_GRAPHQL_API,
+    //     cache: new InMemoryCache(),
+    // });
+
+    // const { data } = await client.query({
+    //     query: GET_ALL_OT_PROJECTS,
+    // });
+    return {
+        props: {
+
+            ...(await serverSideTranslations(locale, ['home'])),
+            // projectlist: data.projects,
+        },
+    };
+
+}
+
+
 
 export default Project

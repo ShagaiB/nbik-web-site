@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
   return (
 
     <div>
-      <div className=' z-20'>
+      <div className=''>
         <Navbar toggle={toggle} />
         <Dropdown isOpen={isOpen} toggle={toggle} />
       </div>

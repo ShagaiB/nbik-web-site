@@ -29,7 +29,7 @@ const Navbar = ({ toggle }) => {
                         <Link href="/"><a className='py-6 px-2 text-primary'>{t('home:start')}</a></Link>
                         <Link href="/About" ><a className='py-6 px-2 text-primary'>{t('home:about')}</a></Link>
                         <Link href="/Service" ><a className='py-6 px-2 text-primary'>{t('home:service')}</a></Link>
-                        <Link href="/Project" ><a className='py-6 px-2 text-primary'>{t('home:projects')}</a></Link>
+                        <Link href="/Project/" ><a className='py-6 px-2 text-primary'>{t('home:projects')}</a></Link>
                         <Link href="/Career" ><a className='py-6 px-2 text-primary'>{t('home:career')}</a></Link>
                         <Link href="/Contact" ><a className='py-6 px-2 text-primary'>{t('home:contact')}</a></Link>
                     </div>
