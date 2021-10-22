@@ -16,7 +16,7 @@ export async function getStaticProps({ locale }) {
   };
 }
 
-export default function Home(props) {
+const Home = (props) => {
   const { t } = useTranslation();
 
   return (
@@ -124,3 +124,4 @@ export default function Home(props) {
     </div>
   )
 }
+export default Home;

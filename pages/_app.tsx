@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import { appWithTranslation } from 'next-i18next';
 
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen)

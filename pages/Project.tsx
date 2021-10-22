@@ -1,20 +1,16 @@
 import Head from 'next/head'
 import React, { useState } from 'react'
-import Footer from '../../components/wFooter'
-import { ubprojects as projectsData } from "../../data";
-import { otprojects as projectsotData } from "../../data";
+import Footer from '../components/wFooter'
+import { ubprojects as projectsData } from "../data";
+import { otprojects as projectsotData } from "../data";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from "next-i18next";
-import { GET_ALL_OT_PROJECTS } from '../../components/queries';
+import { GET_ALL_OT_PROJECTS } from '../components/queries';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
-import ProjectCard from '../../components/ProjectCard';
+import ProjectCard from '../components/ProjectCard';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
-
-
-
-const Project = () => {
+const Project = (projectlist) => {
     const { t } = useTranslation();
     const [projects] = useState(projectsData);
     const [otprojects] = useState(projectsotData);
@@ -45,12 +41,15 @@ const Project = () => {
                     </div>
                 </div>
                 <div className='grid pt-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
-                    {
-                        projects.map((project) => (
-                            <div className='m-4' key={project.id}>
-                                {/* <ProjectCard project={project} key={project.id} /> */}
-                            </div>
-                        ))
+                {
+                        projectlist.projectlist.map((projectub) => (
+                            projectub.categories[0].name == "ub" ?
+                                <div className='m-4' key={projectub.id}>
+                                    <ProjectCard project={projectub} locale={activeLocale} key={projectub.id} />
+                                </div>
+                                : null
+                        )
+                        )
                     }
                 </div>
                 {/* OT tosluud */}
@@ -60,15 +59,16 @@ const Project = () => {
                     </div>
                 </div>
                 <div className='grid pt-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
-                    {/* {
+                    {
                         projectlist.projectlist.map((projectot) => (
-                         
-                                    <div className='m-4' key={projectot.id}>
-                                        <ProjectCard project={projectot} locale={activeLocale} key={projectot.id} />
-                                    </div>
-                            
-                        ))
-                    } */}
+                            projectot.categories[0].name == "ot" ?
+                                <div className='m-4' key={projectot.id}>
+                                    <ProjectCard project={projectot} locale={activeLocale} key={projectot.id} />
+                                </div>
+                                : null
+                        )
+                        )
+                    }
                 </div>
             </div>
             <div>
@@ -79,19 +79,21 @@ const Project = () => {
 }
 
 export const getStaticProps = async ({ locale }) => {
-    // const client = new ApolloClient({
-    //     uri: process.env.STRAPI_GRAPHQL_API,
-    //     cache: new InMemoryCache(),
-    // });
+    console.log("server achaallaa");
+    const client = new ApolloClient({
+        uri: process.env.STRAPI_GRAPHQL_API,
+        cache: new InMemoryCache(),
+    });
 
-    // const { data } = await client.query({
-    //     query: GET_ALL_OT_PROJECTS,
-    // });
+    const { data } = await client.query({
+        query: GET_ALL_OT_PROJECTS,
+    });
+    console.log("unshij duusav");
     return {
         props: {
 
             ...(await serverSideTranslations(locale, ['home'])),
-            // projectlist: data.projects,
+            projectlist: data.projects,
         },
     };
 
