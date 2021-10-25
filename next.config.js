@@ -7,6 +7,7 @@ module.exports = {
     locales: ["mn", "en"]
   },
 
+
   
   
 }

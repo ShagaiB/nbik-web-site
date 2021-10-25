@@ -6,8 +6,6 @@ query{
     id,
     title_mn,
     title_en,
-    description_mn,
-    description_en,
     content_mn,
     content_en,
     image{
@@ -24,4 +22,25 @@ query{
 }
 `;
 
-export { GET_ALL_OT_PROJECTS }
+const GET_ALL_SERVICES = gql`
+query{
+  services{
+    id,
+    title_mn,
+    title_en,
+    description_mn,
+    description_en,
+    content_mn,
+    content_en,
+    image{
+      url
+    }
+    heroimage{
+      url
+    }
+    slug,
+  }
+}
+`;
+
+export { GET_ALL_OT_PROJECTS, GET_ALL_SERVICES }
