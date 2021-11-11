@@ -12,10 +12,10 @@ const ServiceCard = ({ service, locale }) => {
                     <img className='object-cover'  src={service.image.url} alt="service.slug" />
                 </div>
                 <div className='items-center justify-center my-3 text-center '>
-                    {service.title_mn}
+                {locale === 'en' ? service.title_en : service.title_mn}
                 </div>
                 <div className='my-3'>
-                    {service.description_mn}
+                {locale === 'en' ? service.description_en : service.description_mn}
                 </div>
             </div>
         </div>
