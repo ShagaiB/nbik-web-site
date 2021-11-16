@@ -6,7 +6,7 @@ const ProjectPost = ({ project }) => {
     return (
         <div className=''>
         <div className="w-full relative">
-            <div className="absolute bg-yellow-300  w-full h-full opacity-30 top-0 left-0 z-10"></div>
+            {/* <div className="absolute bg-yellow-300  w-full h-full opacity-30 top-0 left-0 z-10"></div> */}
             <div className="absolute z-20 flex flex-col items-center w-full justify-center h-full">
             </div>
             <div>

@@ -43,6 +43,7 @@ const Project = (projectlist) => {
                 <div className='grid pt-4 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
                 {
                         projectlist.projectlist.map((projectub) => (
+                            
                             projectub.categories[0].name == "ub" ?
                                 <div className='m-4' key={projectub.id}>
                                     <ProjectCard project={projectub} locale={activeLocale} key={projectub.id} />
@@ -89,6 +90,7 @@ export const getStaticProps = async ({ locale }) => {
         query: GET_ALL_OT_PROJECTS,
     });
     console.log("unshij duusav");
+
     return {
         props: {
 
