@@ -28,13 +28,17 @@ const Home = (props) => {
       </Head>
 
 
-      <header className="relative flex items-center justify-center w-auto min-h-screen mb-12 overflow-hidden">
-        <div className="relative z-30 p-5 text-2xl text-white bg-purple-300 bg-opacity-50 rounded-xl">
-          {t('home:welcomemsg')}
+      <header className="relative flex items-center justify-center w-full mb-12 overflow-hidden">
+      
+        <div className="absolute bg-yellow-300  w-full h-full opacity-30 top-0 left-0 z-10"></div>
+        <div className="absolute z-20 flex flex-col items-center w-full justify-center h-full">
+          <div className="text-white font-bold text-12 lg:text-6xl"></div>
+          <div className="text-white text-12 lg:text-2xl mt-2 font-medium"></div>
         </div>
-        <video autoPlay loop muted className="absolute z-10 w-auto min-w-full min-h-full max-w-none">
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4" type="video/mp4" />Your browser does not support the video tag.
-        </video>
+        <div>
+          <img src="/images/project.jpg" />
+        </div>
+      
       </header>
 
 

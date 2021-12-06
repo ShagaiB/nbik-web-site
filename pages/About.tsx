@@ -21,7 +21,7 @@ const About = (props) => {
 
       </Head>
       <div className="w-full relative">
-        <div className="absolute bg-prame-400 w-full h-full opacity-30 top-0 left-0 z-10"></div>
+        {/* <div className="absolute bg-prame-400 w-full h-full opacity-30 top-0 left-0 z-10"></div> */}
         <div className="absolute z-20 flex flex-col items-center w-full justify-center h-full">
           <div className="text-white font-bold text-12 h-10 lg:text-6xl"></div>
           <div className="text-white font-bold text-12 lg:text-4xl">We Build The Pride</div>

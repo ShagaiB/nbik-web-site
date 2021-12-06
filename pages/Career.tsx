@@ -31,11 +31,9 @@ const Career = (props) => {
         </div>
       </div>
       <div className='container mx-auto'>
-        <div className='flex items-center justify-center h-screen bg-gray-300'>
-          <h1 className='font-black uppercase lg:text-9xl sm:text-2xl'>
-            Career Page
-          </h1>
-        </div>
+      <div className="w-full md:w-3/5 mx-auto p-8">
+         Coming Soon
+       </div>
       </div>
       <div>
         <Footer />

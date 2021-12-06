@@ -39,7 +39,7 @@ const Contact = (props) => {
           <div className="md:py-4 flex-grow flex flex-col space-y-8">
             <div className="">
               <h1 className="font-bold text-4xl tracking-wide">{t("home:contact")}</h1>
-              <p className=" text-sm pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. At fugiat dicta iusto reprehenderit eum nihil similique.</p>
+              <p className=" text-sm pt-2"></p>
             </div>
             <div className="flex flex-col space-y-6">
               <div className="inline-flex space-x-2 items-center">
