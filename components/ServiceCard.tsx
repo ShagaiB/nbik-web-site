@@ -14,9 +14,7 @@ const ServiceCard = ({ service, locale }) => {
                 <div className='items-center justify-center my-3 text-center '>
                 {locale === 'en' ? service.title_en : service.title_mn}
                 </div>
-                <div className='my-3'>
-                {locale === 'en' ? service.description_en : service.description_mn}
-                </div>
+                
             </div>
         </div>
         </a>
